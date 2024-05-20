@@ -37,4 +37,4 @@ jobs:
       - name: Step one
         uses: actions/checkout@v2
       - name: Step two
-        run: Write-Output "Sucessfully completed the workflow
+        run: Write-Output "Sucessfully completed the workflow"
