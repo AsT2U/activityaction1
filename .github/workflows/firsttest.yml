@@ -40,7 +40,7 @@ jobs:
   jobr4:
     name: Runner 4
     runs-on: windows-latest
-    needs: [job1, job2, job3]
+    needs: [jobr1, jobr2, jobr3]
     steps:
       - name: Step one
         uses: actions/checkout@v2
