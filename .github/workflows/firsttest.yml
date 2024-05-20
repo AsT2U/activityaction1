@@ -1,0 +1,47 @@
+name: activity
+
+on: push
+
+jobs:
+  jobr1:
+    name: Runner 1
+    runs-on: ubuntu-latest
+    steps:
+    - name: Step one
+      uses: actions/checkout@v2
+    - name: Step two
+      run: echo "The current date in bash is $(date +"%a, %b %d, %Y")."
+  jobr2:
+    name: Runner 2
+    runs-on: windows-latest
+    - name: Step one
+      uses: actions/checkout@v2
+    - name: Step two
+      run: |
+        $currdate = Get-Date -f "dddd MM/dd/yyyy"
+        Write-Output "The current date for powershell is: $currdate"
+  jobr3:
+    name: Runner 3
+    runs-on: macos-latest
+    steps:
+    - name: Step one
+      uses: actions/checkout@v2
+    - name: Step two
+      run: |
+        -- Get the current date
+        set currentDate to current date
+
+        -- Convert the date to a string
+        set dateString to currentDate as string
+
+        -- Display the date in a dialog
+        display dialog "Current Date: " & dateString
+  jobr4:
+    name: Runner 4
+    runs-on: windows-latest
+    needs: [job1, job2, job3]
+    steps:
+      - name: Step one
+        uses: actions/checkout@v2
+      - name: Step two
+        run: Write-Output "Sucessfully completed the workflow
