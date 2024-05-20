@@ -7,11 +7,17 @@ jobs:
     name: Runner 1
     runs-on: ubuntu-latest
     steps:
+    - name: Step one
+      uses: actions/checkout@v2
+    - name: Step two
       run: echo "The current date in bash is $(date +"%a, %b %d, %Y")."
   jobr2:
     name: Runner 2
     runs-on: windows-latest
     steps:
+    - name: Step one
+      uses: actions/checkout@v2
+    - name: Step two
       run: |
         $currdate = Get-Date -f "dddd MM/dd/yyyy"
         Write-Output "The current date for powershell is: $currdate"
@@ -19,6 +25,9 @@ jobs:
     name: Runner 3
     runs-on: macos-latest
     steps:
+    - name: Step one
+      uses: actions/checkout@v2
+    - name: Step two
       run: date
   jobr4:
     name: Runner 4
@@ -28,6 +37,4 @@ jobs:
       - name: Step one
         uses: actions/checkout@v2
       - name: Step two
-        run: |
-          Write-Output "Sucessfully completed the workflow
-          Get-Date
+        run: Write-Output "Sucessfully completed the workflow
